@@ -7,6 +7,7 @@ import sys.thread.Thread;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.util.FlxGradient;
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;

@@ -232,6 +232,8 @@ class PlayState extends MusicBeatState
 	public static var seenCutscene:Bool = false;
 	public static var deathCounter:Int = 0;
 
+	var notesHitArray:Array<Date> = [];
+
 	public var defaultCamZoom:Float = 1.05;
 
 	// how big to stretch the pixel art assets
@@ -2179,6 +2181,13 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 
+	for(i in 0...notesHitArray.length)
+	{
+		var cock:Date = notesHitArray[i];
+		if (cock != null)
+			if (cock.getTime() + 2000 < Date.now().getTime())
+			notesHitArray.remove(cock);
+	}
 		nps = Math.floor(notesHitArray.length / 2);
 
 		callOnLuas('onUpdate', [elapsed]);
@@ -3873,6 +3882,9 @@ class PlayState extends MusicBeatState
 
 	function goodNoteHit(note:Note):Void
 	{
+		if (!note.isSustainNote)
+			notesHitArray.push(Date.now());
+
 		if (!note.wasGoodHit)
 		{
 			if (ClientPrefs.hitsoundVolume > 0 && !note.hitsoundDisabled)
