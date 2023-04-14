@@ -106,12 +106,13 @@ class FreeplayState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-		grpSongs = new FlxTypedGroup<Alphabet>();
+		grpSongs = new FlxTypedGroup<FlxText>();
 		add(grpSongs);
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
+			var songText:FlxText = new FlxText(0, (70 * i) + 30, FlxG.width, songs[i].songName, true, false, 48);
+			songText.setFormat(Paths.font('vcr.ttf'), 48, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
@@ -139,7 +140,7 @@ class FreeplayState extends MusicBeatState
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
+			songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
