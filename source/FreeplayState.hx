@@ -41,7 +41,7 @@ class FreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
 
-	private var grpSongs:FlxTypedGroup<FlxText>;
+	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
 	private var iconArray:Array<HealthIcon> = [];
@@ -106,13 +106,12 @@ class FreeplayState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-		grpSongs = new FlxTypedGroup<FlxText>();
+		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
 		for (i in 0...songs.length)
 		{
-			var songText:FlxText = new FlxText(0, (70 * i) + 30, FlxG.width, songs[i].songName, true, false, 48);
-			songText.setFormat(Paths.font('vcr.ttf'), 48, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
@@ -140,7 +139,7 @@ class FreeplayState extends MusicBeatState
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			songText.screenCenter(X);
+			// songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
