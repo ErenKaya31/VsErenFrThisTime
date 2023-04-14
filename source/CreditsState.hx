@@ -81,6 +81,12 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Vs Eren Team'],
+			['Eren Kaya',		'eren',		'Director + did everything',								'https://www.youtube.com/channel/UC4R0oqLN1B3P8Dx3r7VzG0Q',		'00B7FF'],
+			['BobbbyOfficial',			'bobbby',			'Motivation support + Friend for a year',							'https://www.youtube.com/@bobbbyofficial',			'FFFFFF'],
+			['KdjTheCoolGuy123',				'kdjthecools',			'Motivation support + (almost) Friend for a year',						'https://www.youtube.com/@kdjtherealguy',				'FF0000'], // 0xFFFF0000
+			['Thur',				'thur',			'Motivation support + First friend',						'https://www.youtube.com/@GoodBoyFoxy',				'FF2929'], // 0xFFFF2929
+			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],
@@ -94,13 +100,7 @@ class CreditsState extends MusicBeatState
 			['SqirraRNG',			'gedehari',			'Chart Editor\'s Sound Waveform base',						'https://twitter.com/gedehari',			'FF9300'],
 			['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension',								'https://twitter.com/polybiusproxy',	'FFEAA6'],
 			['Keoiki',				'keoiki',			'Note Splash Animations',									'https://twitter.com/Keoiki_',			'FFFFFF'],
-			['Smokey',				'smokey',			'Spritemap Texture Support',								'https://twitter.com/Smokey_5_',		'4D5DBD'],
-			[''],
-			["Funkin' Crew"],
-			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",						'https://twitter.com/ninja_muffin99',	'F73838'],
-			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",							'https://twitter.com/PhantomArcade3K',	'FFBB1B'],
-			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",							'https://twitter.com/evilsk8r',			'53E52C'],
-			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",							'https://twitter.com/kawaisprite',		'6475F3']
+			['Smokey',				'smokey',			'Spritemap Texture Support',								'https://twitter.com/Smokey_5_',		'4D5DBD']
 		];
 		
 		for(i in pisspoop){

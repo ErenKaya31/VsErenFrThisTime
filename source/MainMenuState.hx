@@ -35,7 +35,6 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	var checkered1:FlxBackdrop;
-	var checkered2:FlxBackdrop;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -84,17 +83,11 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		checkered1 = new FlxBackdrop(Paths.image('checkeredBG1'), #if (flixel < "5.0.0") 1, 1, true, true, #else X, #end 1, 1);
+		checkered1 = new FlxBackdrop(Paths.image('checkeredBG'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
 		checkered1.alpha = 0.5;
 		checkered1.antialiasing = true;
 		checkered1.scrollFactor.set();
 		add(checkered1);
-
-		checkered2 = new FlxBackdrop(Paths.image('checkeredBG2'), #if (flixel < "5.0.0") 0.5, 0.5, true, true, #else Y, #end 0.5, 0.5);
-		checkered2.alpha = 0.5;
-		checkered2.antialiasing = true;
-		checkered2.scrollFactor.set();
-		add(checkered2);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
