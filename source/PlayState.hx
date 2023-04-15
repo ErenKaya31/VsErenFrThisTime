@@ -1045,7 +1045,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		songTxt = new FlxText(4, healthBarBG + 55, FlxG.width, Paths.formatToSongPath(SONG.song), 16);
+		songTxt = new FlxText(4, healthBarBG.y + 55, FlxG.width, Paths.formatToSongPath(SONG.song), 16);
 		songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTxt.borderSize = 1.5;
 		songTxt.visible = !ClientPrefs.hideHud;
