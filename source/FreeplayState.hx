@@ -460,8 +460,6 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
-			FlxTween.tween(iconArray, {"scale.x": 1}, 0.5);
-			FlxTween.tween(iconArray, {"scale.y": 1}, 0.5);
 		}
 
 		iconArray[curSelected].alpha = 1;
