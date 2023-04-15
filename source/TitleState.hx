@@ -660,7 +660,6 @@ class TitleState extends MusicBeatState
 		if(curBeat % 4 == 0)
 		{
 			FlxG.camera.zoom += 0.015;
-			camHUD.zoom += 0.03;
 		}
 	}
 
