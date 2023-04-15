@@ -1008,8 +1008,8 @@ class PlayState extends MusicBeatState
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		healthBarBG.visible = !ClientPrefs.hideHud;
-		healthBarBG.xAdd = 0;
-		healthBarBG.yAdd = 0;
+		healthBarBG.xAdd = 4;
+		healthBarBG.yAdd = 4;
 		add(healthBarBG);
 		if(ClientPrefs.downScroll) healthBarBG.y = 50;
 
@@ -1035,7 +1035,7 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
+		scoreTxt = new FlxText(0, healthBarBG.y + 40, FlxG.width, "", 20);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
@@ -2191,9 +2191,6 @@ class PlayState extends MusicBeatState
 		nps = Math.floor(notesHitArray.length / 2);
 
 		callOnLuas('onUpdate', [elapsed]);
-
-		healthBar.x = healthBarBG.x + 4;
-		healthBar.y = healthBarBG.y + 4;
 
 		switch (curStage)
 		{

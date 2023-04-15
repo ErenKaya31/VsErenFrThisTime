@@ -85,7 +85,10 @@ class MainMenuState extends MusicBeatState
 
 		checkered1 = new FlxBackdrop(Paths.image('checkeredBG'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
 		checkered1.alpha = 0.5;
+		checkered1.velocity.set(0, 100);
+		checkered1.updateHitbox();
 		checkered1.antialiasing = true;
+		checkered1.screenCenter(X);
 		checkered1.scrollFactor.set();
 		add(checkered1);
 
