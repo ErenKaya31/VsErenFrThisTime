@@ -226,6 +226,7 @@ class PlayState extends MusicBeatState
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
 	var timeTxtTween:FlxTween;
+	var songTxtTween:FlxTween;
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
@@ -259,6 +260,8 @@ class PlayState extends MusicBeatState
 	var keysPressed:Array<Bool> = [];
 	var boyfriendIdleTime:Float = 0.0;
 	var boyfriendIdled:Bool = false;
+
+	var songTxt:FlxText;
 
 	// Lua shit
 	public static var instance:PlayState;
@@ -1042,6 +1045,13 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
+		songTxt = new FlxText(4, healthBarBG + 55, FlxG.width, Paths.formatToSongPath(SONG.song), 16);
+		songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songTxt.borderSize = 1.5;
+		songTxt.visible = !ClientPrefs.hideHud;
+		songTxt.scrollFactor.set();
+		add(songTxt);
+
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
@@ -1060,6 +1070,7 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
+		songTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
@@ -4257,6 +4268,19 @@ class PlayState extends MusicBeatState
 				timeTxtTween = FlxTween.tween(timeTxt.scale, {x: 1, y: 1}, 0.2, {
 					onComplete: function(twn:FlxTween) {
 						timeTxtTween = null;
+					}
+				});
+
+				if(songTxtTween != null) 
+				{
+					songTxtTween.cancel();
+				}
+		
+				songTxt.scale.x = 1.5;
+				songTxt.scale.y = 0.5;
+				songTxtTween = FlxTween.tween(songTxt.scale, {x: 1, y: 1}, 0.2, {
+					onComplete: function(twn:FlxTween) {
+						songTxtTween = null;
 					}
 				});
 			}

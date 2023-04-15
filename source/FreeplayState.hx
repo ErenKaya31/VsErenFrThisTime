@@ -476,8 +476,6 @@ class FreeplayState extends MusicBeatState
 			{
 				item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
-				FlxTween.tween(iconArray, {"scale.x": 1.1}, 0.5);
-				FlxTween.tween(iconArray, {"scale.y": 1.1}, 0.5);
 			}
 		}
 		
