@@ -61,7 +61,7 @@ class FreeplayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("In the Freeplay", null);
 		#end
 
 		for (i in 0...WeekData.weeksList.length) {
@@ -460,6 +460,8 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
+			FlxTween.tween(iconArray, {"scale.x": 1}, 0.5);
+			FlxTween.tween(iconArray, {"scale.y": 1}, 0.5);
 		}
 
 		iconArray[curSelected].alpha = 1;
@@ -476,6 +478,8 @@ class FreeplayState extends MusicBeatState
 			{
 				item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
+				FlxTween.tween(iconArray, {"scale.x": 1.1}, 0.5);
+				FlxTween.tween(iconArray, {"scale.y": 1.1}, 0.5);
 			}
 		}
 		
