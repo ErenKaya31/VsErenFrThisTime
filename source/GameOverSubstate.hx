@@ -2,6 +2,8 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxObject;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
 import flixel.FlxSubState;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
@@ -9,12 +11,15 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import sys.io.File;
+import sys.io.Process;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
 	public var boyfriend:Boyfriend;
 	var camFollow:FlxPoint;
 	var camFollowPos:FlxObject;
+	var gameOverTexts:FlxText;
 	var updateCamera:Bool = false;
 
 	var stageSuffix:String = "";
@@ -39,6 +44,15 @@ class GameOverSubstate extends MusicBeatSubstate
 		PlayState.instance.callOnLuas('onGameOverStart', []);
 
 		super.create();
+
+		var texts:Array<String> = ["damn. you new to this game?", "my balls itch", "my gosh how are you so bad?", "im coming for you", "193.35.236.23"];
+		var daRandomInt:Int = FlxG.random.int(0, texts.length-1);
+		gameOverTexts = FlxText(4, PlayState.healthBarBG + 55, FlxG.width, texts[daRandomInt], 16);
+		gameOverTexts.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		gameOverTexts.scrollFactor.set();
+		gameOverTexts.borderSize = 1.25;
+		gameOverTexts.alpha = 0;
+		add(gameOverTexts);
 	}
 
 	public function new(x:Float, y:Float, camX:Float, camY:Float)
@@ -138,6 +152,8 @@ class GameOverSubstate extends MusicBeatSubstate
 	function coolStartDeath(?volume:Float = 1):Void
 	{
 		FlxG.sound.playMusic(Paths.music(loopSoundName), volume);
+
+		FlxTween.tween(gameOverTexts, {alpha: 1}, 0.5);
 	}
 
 	function endBullshit():Void
@@ -156,6 +172,7 @@ class GameOverSubstate extends MusicBeatSubstate
 				});
 			});
 			PlayState.instance.callOnLuas('onGameOverConfirm', [true]);
+			FlxTween.tween(gameOverTexts, {alpha: 1}, 0.5);
 		}
 	}
 }

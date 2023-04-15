@@ -603,6 +603,7 @@ class TitleState extends MusicBeatState
 				case 3:
 					#if PSYCH_WATERMARKS
 					addMoreText('Eren Kaya', 15);
+					addMoreText('', 15);
 					addMoreText('gosh im lonely', 15);
 					#else
 					addMoreText('present');
@@ -654,6 +655,12 @@ class TitleState extends MusicBeatState
 				case 16:
 					skipIntro();
 			}
+		}
+
+		if(curBeat % 4 == 0)
+		{
+			FlxG.camera.zoom += 0.015;
+			camHUD.zoom += 0.03;
 		}
 	}
 

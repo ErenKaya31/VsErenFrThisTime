@@ -4252,8 +4252,8 @@ class PlayState extends MusicBeatState
 					timeTxtTween.cancel();
 				}
 	
-				timeTxt.scale.x = 1.1;
-				timeTxt.scale.y = 1.1;
+				timeTxt.scale.x = 1.5;
+				timeTxt.scale.y = 0.5;
 				timeTxtTween = FlxTween.tween(timeTxt.scale, {x: 1, y: 1}, 0.2, {
 					onComplete: function(twn:FlxTween) {
 						timeTxtTween = null;
