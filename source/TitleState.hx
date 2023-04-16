@@ -660,7 +660,7 @@ class TitleState extends MusicBeatState
 		if(curBeat % 4 == 0)
 		{
 			FlxG.camera.zoom += 0.015;
-			FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.015}, 1);
+			FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.015}, 0.2);
 		}
 	}
 
