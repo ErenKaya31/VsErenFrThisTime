@@ -261,7 +261,7 @@ class PlayState extends MusicBeatState
 	var boyfriendIdleTime:Float = 0.0;
 	var boyfriendIdled:Bool = false;
 
-	var songTxt:FlxText;
+	var watermarkTxt:FlxText;
 
 	// Lua shit
 	public static var instance:PlayState;
@@ -1045,11 +1045,11 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		songTxt = new FlxText(4, healthBarBG.y + 55, FlxG.width, SONG.song, 16);
-		songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		songTxt.scrollFactor.set();
-		songTxt.borderSize = 1.25;
-		add(songTxt);
+		watermarkTxt = new FlxText(4, healthBarBG.y + 55, FlxG.width, SONG.song, 16);
+		watermarkTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		watermarkTxt.scrollFactor.set();
+		watermarkTxt.borderSize = 1.25;
+		add(watermarkTxt);
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1069,7 +1069,7 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
-		songTxt.cameras = [camHUD];
+		watermarkTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
@@ -4278,9 +4278,9 @@ class PlayState extends MusicBeatState
 					songTxtTween.cancel();
 				}
 		
-				songTxt.scale.x = 1.5;
-				songTxt.scale.y = 0.5;
-				songTxtTween = FlxTween.tween(songTxt.scale, {x: 1, y: 1}, 0.2, {
+				watermarkTxt.scale.x = 1.5;
+				watermarkTxt.scale.y = 0.5;
+				songTxtTween = FlxTween.tween(watermarkTxt.scale, {x: 1, y: 1}, 0.2, {
 					onComplete: function(twn:FlxTween) {
 						songTxtTween = null;
 					}

@@ -115,10 +115,10 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
+			var songText:Alphabet = new Alphabet(0, 0, songs[i].songName, true, false);
 			songText.isMenuItem = true;
-			songText.targetY = i;
-			songText.screenCenter();
+			songText.screenCenter(Y);
+			songText.screenCenter(X);
 			grpSongs.add(songText);
 
 			if (songText.width > 980)
@@ -148,7 +148,7 @@ class FreeplayState extends MusicBeatState
 		}
 		WeekData.setDirectoryFromWeek();
 
-		scoreText = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
+		scoreText = new FlxText(FlxG.width * 0.7, 15, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
@@ -269,8 +269,8 @@ class FreeplayState extends MusicBeatState
 		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
 		positionHighscore();
 
-		var upP = controls.UI_RIGHT_P;
-		var downP = controls.UI_LEFT_P;
+		var upP = controls.UI_LEFT_P;
+		var downP = controls.UI_RIGHT_P;
 		var accepted = controls.ACCEPT;
 		var space = FlxG.keys.justPressed.SPACE;
 		var ctrl = FlxG.keys.justPressed.CONTROL;
