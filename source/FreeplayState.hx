@@ -111,7 +111,7 @@ class FreeplayState extends MusicBeatState
 		bg.scrollFactor.set();
 		add(bg);
 
-		if (Paths.formatToSongPath(SONG.song) == 'detected')
+		if (songs[curSelected].songName == 'Detected' && songs[curSelected].songName == 'detected')
 		{
 			bg.loadGraphic(Paths.image('freeplayBG/detected'));
 		}
