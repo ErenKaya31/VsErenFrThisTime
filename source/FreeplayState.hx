@@ -18,6 +18,8 @@ import lime.utils.Assets;
 import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
 import WeekData;
+import flixel.util.FlxAxes;
+import flixel.addons.display.FlxBackdrop;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
@@ -46,7 +48,7 @@ class FreeplayState extends MusicBeatState
 
 	private var iconArray:Array<HealthIcon> = [];
 
-	var bg:FlxSprite;
+	var bg:FlxBackdrop;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
@@ -101,10 +103,18 @@ class FreeplayState extends MusicBeatState
 			}
 		}*/
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		bg = new FlxBackdrop(Paths.image('freeplayBG/normal'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
+		bg.velocity.set(100, 0);
+		bg.updateHitbox();
+		bg.antialiasing = !ClientPrefs.globalAntialiasing;
+		bg.screenCenter(X);
+		bg.scrollFactor.set();
 		add(bg);
-		bg.screenCenter();
+
+		if (Paths.formatToSongPath(SONG.song) == 'detected')
+		{
+			bg.loadGraphic(Paths.image('freeplayBG/detected'));
+		}
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);

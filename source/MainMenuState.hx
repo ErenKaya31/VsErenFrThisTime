@@ -87,7 +87,7 @@ class MainMenuState extends MusicBeatState
 		checkered1.alpha = 0.5;
 		checkered1.velocity.set(0, 100);
 		checkered1.updateHitbox();
-		checkered1.antialiasing = true;
+		checkered1.antialiasing = !ClientPrefs.globalAntialiasing;
 		checkered1.screenCenter(X);
 		checkered1.scrollFactor.set();
 		add(checkered1);
@@ -230,7 +230,7 @@ class MainMenuState extends MusicBeatState
 					if(ClientPrefs.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
 					FlxTween.tween(FlxG.camera, {zoom: 10}, 1.1, {ease: FlxEase.quartInOut});
-					FlxTween.tween(menuItems, {x: 1000}, 1.1, {ease: FlxEase.quartInOut});
+					FlxTween.tween(menuItem, {x: 1000}, 1.1, {ease: FlxEase.quartInOut});
 
 					menuItems.forEach(function(spr:FlxSprite)
 					{
