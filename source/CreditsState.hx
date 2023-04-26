@@ -45,7 +45,7 @@ class CreditsState extends MusicBeatState
 		#end
 
 		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('freeplayBG/credits'));
 		add(bg);
 		bg.screenCenter();
 		
@@ -221,22 +221,7 @@ class CreditsState extends MusicBeatState
 		
 		for (item in grpOptions.members)
 		{
-			if(!item.isBold)
-			{
-				var lerpVal:Float = CoolUtil.boundTo(elapsed * 12, 0, 1);
-				if(item.targetY == 0)
-				{
-					var lastX:Float = item.x;
-					item.screenCenter(X);
-					item.x = FlxMath.lerp(lastX, item.x - 70, lerpVal);
-					item.forceX = item.x;
-				}
-				else
-				{
-					item.x = FlxMath.lerp(item.x, 200 + -40 * Math.abs(item.targetY), lerpVal);
-					item.forceX = item.x;
-				}
-			}
+			item.screenCenter(X);
 		}
 		super.update(elapsed);
 	}
@@ -253,7 +238,7 @@ class CreditsState extends MusicBeatState
 				curSelected = 0;
 		} while(unselectableCheck(curSelected));
 
-		var newColor:Int =  getCurrentBGColor();
+		var newColor:Int = getCurrentBGColor();
 		if(newColor != intendedColor) {
 			if(colorTween != null) {
 				colorTween.cancel();

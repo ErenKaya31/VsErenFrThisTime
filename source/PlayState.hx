@@ -910,7 +910,7 @@ class PlayState extends MusicBeatState
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
 			'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
-		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
+		//timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF); // SHITTY LOLL
 		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.alpha = 0;
 		timeBar.visible = showTime;
@@ -1011,8 +1011,6 @@ class PlayState extends MusicBeatState
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		healthBarBG.visible = !ClientPrefs.hideHud;
-		healthBarBG.xAdd = 4;
-		healthBarBG.yAdd = 4;
 		add(healthBarBG);
 		if(ClientPrefs.downScroll) healthBarBG.y = 50;
 
@@ -1045,7 +1043,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		watermarkTxt = new FlxText(4, healthBarBG.y + 55, FlxG.width, SONG.song, 16);
+		watermarkTxt = new FlxText(4, healthBarBG.y + 55, 0, SONG.song, 16);
 		watermarkTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		watermarkTxt.scrollFactor.set();
 		watermarkTxt.borderSize = 1.25;
@@ -4278,8 +4276,8 @@ class PlayState extends MusicBeatState
 					songTxtTween.cancel();
 				}
 		
-				watermarkTxt.scale.x = 1.5;
-				watermarkTxt.scale.y = 0.5;
+				watermarkTxt.scale.x = 1.1;
+				watermarkTxt.scale.y = 1.1;
 				songTxtTween = FlxTween.tween(watermarkTxt.scale, {x: 1, y: 1}, 0.2, {
 					onComplete: function(twn:FlxTween) {
 						songTxtTween = null;
