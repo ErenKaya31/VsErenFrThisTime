@@ -48,7 +48,7 @@ class CreditsState extends MusicBeatState
 
 		persistentUpdate = true;
 		bg = new FlxBackdrop(Paths.image('freeplayBG/credits'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
-		bg.velocity.set(100, 0);
+		bg.velocity.set(0, 100);
 		bg.updateHitbox();
 		bg.antialiasing = !ClientPrefs.globalAntialiasing;
 		bg.screenCenter(X);
