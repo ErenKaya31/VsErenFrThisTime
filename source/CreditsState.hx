@@ -13,6 +13,8 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+import flixel.util.FlxAxes;
+import flixel.addons.display.FlxBackdrop;
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
@@ -45,9 +47,13 @@ class CreditsState extends MusicBeatState
 		#end
 
 		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('freeplayBG/credits'));
+		bg = new FlxBackdrop(Paths.image('freeplayBG/credits'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
+		bg.velocity.set(100, 0);
+		bg.updateHitbox();
+		bg.antialiasing = !ClientPrefs.globalAntialiasing;
+		bg.screenCenter(X);
+		bg.scrollFactor.set();
 		add(bg);
-		bg.screenCenter();
 		
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
