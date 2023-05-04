@@ -117,8 +117,6 @@ class FreeplayState extends MusicBeatState
 		{
 			var songText:Alphabet = new Alphabet(0, 0, songs[i].songName, true, false);
 			songText.isMenuItem = true;
-			songText.screenCenter(Y);
-			songText.screenCenter(X);
 			grpSongs.add(songText);
 
 			if (songText.width > 980)

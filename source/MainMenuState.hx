@@ -30,6 +30,7 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.5.2h'; //This is also used for Discord RPC
 	public static var erenEngineVersion:String = '0.1 Beta';
 	public static var curSelected:Int = 0;
+	public static var detectedFound:Bool = false;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
@@ -37,13 +38,18 @@ class MainMenuState extends MusicBeatState
 	var checkered1:FlxBackdrop;
 	
 	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		//#if MODS_ALLOWED 'mods', #end
-		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',
-		//#if !switch 'donate', #end
-		'options'
+		if (detectedFound){
+			'detected',
+			'story_mode',
+			'freeplay',
+			'credits',
+			'options'
+		} else {
+			'story_mode',
+			'freeplay',
+			'credits',
+			'options'
+		}
 	];
 
 	var magenta:FlxSprite;
@@ -129,7 +135,9 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.x = 110;
-			//menuItem.screenCenter(X);
+			if (detectedFound) {
+				menuItem.screenCenter(X);
+			}
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -190,6 +198,11 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+		}
+
+		if (FlxG.keys.justPressed.F4) {
+			detectedFound = true;
+			FlxG.camera.flash(FlxColor.WHITE, 1);
 		}
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
@@ -265,6 +278,17 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
+									case 'detected':
+										var poop:String = Highscore.formatSong('detected', 0);
+
+										trace(poop);
+	
+										FlxG.save.data.detectedFound = true;
+							
+										PlayState.SONG = Song.loadFromJson(poop, 'detected');
+										PlayState.isStoryMode = false;
+										PlayState.storyDifficulty = 0;
+										LoadingState.loadAndSwitchState(new PlayState());
 								}
 							});
 						}
@@ -283,8 +307,10 @@ class MainMenuState extends MusicBeatState
 		super.update(elapsed);
 
 		menuItems.forEach(function(spr:FlxSprite)
-		{
-			//spr.screenCenter(X);
+		{	
+			if (detectedFound) {
+				spr.screenCenter(X);
+			}
 		});
 	}
 

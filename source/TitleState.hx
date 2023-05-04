@@ -651,16 +651,9 @@ class TitleState extends MusicBeatState
 				// credTextShit.text += '\nNight';
 				case 15:
 					addMoreText('Kaya'); // credTextShit.text += '\nFunkin';
-
 				case 16:
 					skipIntro();
 			}
-		}
-
-		if(curBeat % 4 == 0)
-		{
-			FlxG.camera.zoom += 0.015;
-			FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom - 0.015}, 0.2);
 		}
 	}
 
