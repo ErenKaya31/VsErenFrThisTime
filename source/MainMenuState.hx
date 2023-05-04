@@ -38,7 +38,7 @@ class MainMenuState extends MusicBeatState
 	var checkered1:FlxBackdrop;
 	
 	var optionShit:Array<String> = [
-		if (detectedFound){
+		if (detectedFound) {
 			'detected',
 			'story_mode',
 			'freeplay',
