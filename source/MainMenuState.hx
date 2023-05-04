@@ -38,18 +38,10 @@ class MainMenuState extends MusicBeatState
 	var checkered1:FlxBackdrop;
 	
 	var optionShit:Array<String> = [
-		if (detectedFound) {
-			'detected',
-			'story_mode',
-			'freeplay',
-			'credits',
-			'options'
-		} else {
-			'story_mode',
-			'freeplay',
-			'credits',
-			'options'
-		}
+		'story_mode',
+		'freeplay',
+		'credits',
+		'options'
 	];
 
 	var magenta:FlxSprite;
@@ -203,6 +195,23 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.keys.justPressed.F4) {
 			detectedFound = true;
 			FlxG.camera.flash(FlxColor.WHITE, 1);
+		}
+
+		if (detectedFound) {
+			var optionShit:Array<String> = [
+				'detected',
+				'story_mode',
+				'freeplay',
+				'credits',
+				'options'
+			];
+		} else {
+			var optionShit:Array<String> = [
+				'story_mode',
+				'freeplay',
+				'credits',
+				'options'
+			];
 		}
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
