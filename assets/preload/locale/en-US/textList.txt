@@ -1,0 +1,4 @@
+// Inside Song //
+scoreText==Score
+missesText==Misses
+accuracyText==Accuracy
