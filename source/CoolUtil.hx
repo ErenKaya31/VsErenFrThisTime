@@ -133,4 +133,40 @@ class CoolUtil
 		FlxG.openURL(site);
 		#end
 	}
+
+	public static function coolTextFile(path:String):Array<String>
+		{
+			var daList:Array<String> = Assets.getText(path).trim().split('\n');
+	
+			for (i in 0...daList.length)
+			{
+				daList[i] = daList[i].trim();
+			}
+			return daList;
+		}
+	
+	public static function coolStringFile(path:String):Array<String>
+		{
+			var daList:Array<String> = path.trim().split('\n');
+
+			for (i in 0...daList.length)
+			{
+				daList[i] = daList[i].trim();
+			}
+	
+			return daList;
+		}
+
+	public static function getMinAndMax(value1:Float, value2:Float):Array<Float>
+		{
+			var minAndMaxs = new Array<Float>();
+	
+			var min = Math.min(value1, value2);
+			var max = Math.max(value1, value2);
+		
+			minAndMaxs.push(min);
+			minAndMaxs.push(max);
+		
+			return minAndMaxs;
+		}
 }

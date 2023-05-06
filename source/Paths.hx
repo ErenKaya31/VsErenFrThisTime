@@ -390,6 +390,11 @@ class Paths
 		return modFolders('fonts/' + key);
 	}
 
+	static public function langaugeFile():String
+	{
+		return getPath('locale/languages.txt', TEXT, 'preload');
+	}
+
 	inline static public function modsJson(key:String) {
 		return modFolders('data/' + key + '.json');
 	}
