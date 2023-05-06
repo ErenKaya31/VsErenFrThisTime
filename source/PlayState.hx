@@ -2340,15 +2340,15 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '% | NPS: ' + nps + ' / ' + ratingFC;
 		}
 
-		if(ClientPrefs.language == 'Turkish' && ratingName == 'N/A') {
+		if(ClientPrefs.language[1] && ratingName == 'N/A') {
 			scoreTxt.text = 'Skor: ' + songScore + ' | Iskalar: ' + songMisses + ' | Kesinlik: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '% | NPS: ' + nps;
-		} else if(ClientPrefs.language == 'Turkish' && !ratingName == 'N/A') {
+		} else if(ClientPrefs.language[1] && !ratingName == 'N/A') {
 			scoreTxt.text = 'Skor: ' + songScore + ' | Iskalar: ' + songMisses + ' | Kesinlik: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '% | NPS: ' + nps + ' / ' + ratingFC;
 		}
 
 		if (cpuControlled) {
 			scoreTxt.text = 'BOTPLAY | NPS: ' + nps;
-		} else if(ClientPrefs.language == 'Turkish' && cpuControlled) {
+		} else if(ClientPrefs.language[1] && cpuControlled) {
 			scoreTxt.text = 'OTO OYNAMA | NPS: ' + nps;
 		}
 

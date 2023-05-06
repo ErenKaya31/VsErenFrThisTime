@@ -111,7 +111,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		var option:Option = new Option('Language:',
 			"What language do you want your game to be",
 			'language',
-			'array',
+			'string',
 			'Turkish',
 			['English (Default)', 'Turkish']);
 	addOption(option);
