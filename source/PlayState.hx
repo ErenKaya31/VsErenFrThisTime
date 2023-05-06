@@ -27,7 +27,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -703,6 +703,10 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
+		if(Paths.formatToSongPath(SONG.song) == 'detected') {
+			introSoundsSuffix = '-detected';
+		}
+
 		add(gfGroup); //Needed for blammed lights
 
 		// Shitty layering but whatev it works LOL
@@ -1014,7 +1018,7 @@ class PlayState extends MusicBeatState
 		add(healthBarBG);
 		if(ClientPrefs.downScroll) healthBarBG.y = 50;
 
-		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
+		healthBar = new FlxBar(healthBarBG.x + 8, healthBarBG.y + 8, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
 		// healthBar
@@ -1039,7 +1043,7 @@ class PlayState extends MusicBeatState
 		scoreTxt = new FlxText(0, healthBarBG.y + 40, FlxG.width, "", 20);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
-		scoreTxt.borderSize = 1.25;
+		scoreTxt.borderSize = 1.5;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
@@ -2331,13 +2335,21 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		if(ratingName == 'N/A') {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' | NPS: ' + nps;
+			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '% | NPS: ' + nps;
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC + ' | NPS: ' + nps;//peeps wanted no integer rating
+			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '% | NPS: ' + nps + ' / ' + ratingFC;
+		}
+
+		if(ClientPrefs.language[1] && ratingName == 'N/A') {
+			scoreTxt.text = 'Skor: ' + songScore + ' | Iskalar: ' + songMisses + ' | Kesinlik: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '% | NPS: ' + nps;
+		} else if(ClientPrefs.language[1] && !ratingName == 'N/A') {
+			scoreTxt.text = 'Skor: ' + songScore + ' | Iskalar: ' + songMisses + ' | Kesinlik: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '% | NPS: ' + nps + ' / ' + ratingFC;
 		}
 
 		if (cpuControlled) {
-			scoreTxt.text = 'BOTPLAY ON (skill issue) | NPS: ' + nps;
+			scoreTxt.text = 'BOTPLAY | NPS: ' + nps;
+		} else if(ClientPrefs.language[1] && cpuControlled) {
+			scoreTxt.text = 'OTO OYNAMA | NPS: ' + nps;
 		}
 
 		if(botplayTxt.visible) {

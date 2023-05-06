@@ -198,15 +198,11 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (detectedFound) {
-			var optionShit:Array<String> = [
-				'detected',
-				'story_mode',
-				'freeplay',
-				'credits',
-				'options'
+			optionShit = [
+				'detected'
 			];
-		} else {
-			var optionShit:Array<String> = [
+		} else {          
+			optionShit = [
 				'story_mode',
 				'freeplay',
 				'credits',

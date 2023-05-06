@@ -108,6 +108,14 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 
+		var option:Option = new Option('Language:',
+			"What language do you want your game to be",
+			'language',
+			'array',
+			'Turkish',
+			['English (Default)', 'Turkish']);
+	addOption(option);
+
 		super();
 	}
 
