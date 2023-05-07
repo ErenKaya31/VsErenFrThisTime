@@ -35,6 +35,7 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	var checkered1:FlxBackdrop;
+	var bg:FlxSprite;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -72,7 +73,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -126,9 +127,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.x = 110;
-			if (detectedFound) {
-				menuItem.screenCenter(X);
-			}
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -192,7 +190,7 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (FlxG.keys.justPressed.F4) {
-			FlxG.save.data.detectedFound = true;
+			FlxG.save.data.detectedUnlocked = true;
 			FlxG.camera.flash(FlxColor.WHITE, 1);
 			bg.color = 0x00000000;
 			magenta.color = 0x00000000;
