@@ -73,13 +73,13 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
+		add(bg); // giving myself perks for to do edit this CUZ ITS MY MOD YOU BUFFOONS
 
 		checkered1 = new FlxBackdrop(Paths.image('checkeredBG'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
 		checkered1.alpha = 0.5;
