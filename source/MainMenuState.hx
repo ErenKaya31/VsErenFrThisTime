@@ -30,7 +30,6 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.5.2h'; //This is also used for Discord RPC
 	public static var erenEngineVersion:String = '0.1 Beta';
 	public static var curSelected:Int = 0;
-	public static var detectedFound:Bool = false;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
@@ -193,16 +192,13 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (FlxG.keys.justPressed.F4) {
-			detectedFound = true;
+			FlxG.save.data.detectedFound = true;
 			FlxG.camera.flash(FlxColor.WHITE, 1);
-		}
+			bg.color = 0x00000000;
+			magenta.color = 0x00000000;
 
-		if (detectedFound) {
-			optionShit = [
-				'detected'
-			];
-		} else {          
-			optionShit = [
+			var optionShit = [
+				'detected',
 				'story_mode',
 				'freeplay',
 				'credits',
@@ -286,9 +282,7 @@ class MainMenuState extends MusicBeatState
 									case 'detected':
 										var poop:String = Highscore.formatSong('detected', 0);
 
-										trace(poop);
-	
-										FlxG.save.data.detectedFound = true;
+										//trace(poop);
 							
 										PlayState.SONG = Song.loadFromJson(poop, 'detected');
 										PlayState.isStoryMode = false;
@@ -313,9 +307,7 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{	
-			if (detectedFound) {
-				spr.screenCenter(X);
-			}
+			//nothing
 		});
 	}
 
