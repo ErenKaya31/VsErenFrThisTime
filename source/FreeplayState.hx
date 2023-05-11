@@ -438,14 +438,6 @@ class FreeplayState extends MusicBeatState
 					colorTween = null;
 				}
 			});
-
-			for (item in grpSongs.members)
-				{
-					if(item == 'detected' && item == 'Detected')
-					{
-						colorTween.cancel();
-					}
-				}
 		}
 
 		// selector.y = (70 * curSelected) + 30;
@@ -476,12 +468,6 @@ class FreeplayState extends MusicBeatState
 			{
 				item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
-			}
-
-			if(item == 'detected' && item == 'Detected')
-			{
-				bg.loadGraphic(Paths.image('freeplayBG/detected'));
-				FlxG.camera.shake(0.0015, 0.0015);
 			}
 		}
 		
