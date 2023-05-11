@@ -478,7 +478,7 @@ class FreeplayState extends MusicBeatState
 			if(grpSongs.members == 'detected' && grpSongs.members == 'Detected')
 			{
 				bg.loadGraphic(Paths.image('freeplayBG/detected'));
-				bg.color = 0xFFFFFFFF;
+				FlxG.camera.shake(0.0015, 0.0015);
 			}
 		}
 		
