@@ -189,21 +189,6 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (FlxG.keys.justPressed.F4) {
-			FlxG.save.data.detectedUnlocked = true;
-			FlxG.camera.flash(FlxColor.WHITE, 1);
-			bg.color = 0x00000000;
-			magenta.color = 0x00000000;
-
-			optionShit = [
-				'detected',
-				'story_mode',
-				'freeplay',
-				'credits',
-				'options'
-			];
-		}
-
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
@@ -277,15 +262,6 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
-									case 'detected':
-										var poop:String = Highscore.formatSong('detected', 0);
-
-										//trace(poop);
-							
-										PlayState.SONG = Song.loadFromJson(poop, 'detected');
-										PlayState.isStoryMode = false;
-										PlayState.storyDifficulty = 0;
-										LoadingState.loadAndSwitchState(new PlayState());
 								}
 							});
 						}

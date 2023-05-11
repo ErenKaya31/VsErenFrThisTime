@@ -247,6 +247,11 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
+		if (PlayState.SONG.song == 'Detected' && PlayState.SONG.song == 'detected')
+		{
+			FlxG.camera.shake(0.0015, 0.0015);
+		}
+
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 24, 0, 1)));
 		lerpRating = FlxMath.lerp(lerpRating, intendedRating, CoolUtil.boundTo(elapsed * 12, 0, 1));
 
