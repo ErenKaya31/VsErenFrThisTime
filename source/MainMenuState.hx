@@ -195,7 +195,7 @@ class MainMenuState extends MusicBeatState
 			bg.color = 0x00000000;
 			magenta.color = 0x00000000;
 
-			var optionShit = [
+			optionShit = [
 				'detected',
 				'story_mode',
 				'freeplay',
