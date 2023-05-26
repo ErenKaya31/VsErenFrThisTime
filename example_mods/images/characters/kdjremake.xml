@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+-->
+<TextureAtlas imagePath="kdjremake.png" width="2048" height="2048">
+  <SubTexture name="u0002.png" x="0" y="0"  width="332" height="509" frameX="-424" frameY="-764" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="u0001.png" x="0" y="509"  width="343" height="483" frameX="-416" frameY="-789" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="u0000.png" x="332" y="0"  width="362" height="467" frameX="-405" frameY="-804" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="r0000.png" x="0" y="992"  width="402" height="461" frameX="-408" frameY="-811" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0001.png" x="343" y="467"  width="379" height="458" frameX="-403" frameY="-814" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0000.png" x="694" y="0"  width="370" height="458" frameX="-391" frameY="-813" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="r0001.png" x="0" y="1453"  width="414" height="457" frameX="-415" frameY="-815" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="d0000.png" x="402" y="925"  width="371" height="450" frameX="-408" frameY="-822" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="l0000.png" x="722" y="458"  width="363" height="447" frameX="-374" frameY="-825" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0002.png" x="1064" y="0"  width="397" height="446" frameX="-403" frameY="-826" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0004.png" x="1461" y="0"  width="431" height="422" frameX="-400" frameY="-850" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0003.png" x="1461" y="422"  width="415" height="435" frameX="-400" frameY="-837" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="l0001.png" x="1085" y="446"  width="362" height="439" frameX="-364" frameY="-833" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="d0002.png" x="1447" y="857"  width="404" height="412" frameX="-394" frameY="-860" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="d0001.png" x="1447" y="1269"  width="388" height="435" frameX="-403" frameY="-837" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0008.png" x="694" y="0"  width="370" height="458" frameX="-391" frameY="-813" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0007.png" x="343" y="467"  width="379" height="458" frameX="-403" frameY="-814" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0006.png" x="1064" y="0"  width="397" height="446" frameX="-403" frameY="-826" frameWidth="1200" frameHeight="1928"/>
+  <SubTexture name="i0005.png" x="1461" y="422"  width="415" height="435" frameX="-400" frameY="-837" frameWidth="1200" frameHeight="1928"/>
+</TextureAtlas>
